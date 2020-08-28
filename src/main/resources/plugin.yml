@@ -42,6 +42,8 @@ commands:
   invsee:
     aliases: [inventory]
   freeze:
+  teleport:
+    aliases: [tp]
 
 permissions:
   astride.speed:
@@ -94,3 +96,5 @@ permissions:
     description: Permission to vanish
   astride.invsee:
     description: Permission to invsee
+  astride.teleport:
+    description: Permission to teleport

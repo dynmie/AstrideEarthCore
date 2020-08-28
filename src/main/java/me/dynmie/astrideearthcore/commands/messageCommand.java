@@ -21,8 +21,8 @@ public class messageCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player && args.length > 0) {
-            if (args.length > 1) {
-                if (getPlayer(args[0]).getPlayer() != null) {
+            if (args.length > 2) {
+                if (!(getPlayer(args[0]) == null)) {
                     Player messager = (Player) sender;
                     Player receiver = getPlayer(args[0]);
                     plugin.mM.setReplyTarget(messager, receiver);
@@ -35,10 +35,10 @@ public class messageCommand implements CommandExecutor {
                     receiver.sendMessage(Utils.chat("&7(From &f" + messager.getDisplayName() + "&7) " + message.trim()));
                     receiver.playSound(receiver.getLocation(), ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 0.9f);
                 } else {
-                    sender.sendMessage(Utils.chat("&cThat isn't a valid message."));
+                    sender.sendMessage(Utils.chat("&cThat player is offline."));
                 }
             } else {
-                sender.sendMessage(Utils.chat("&cThat player is offline."));
+                sender.sendMessage(Utils.chat("&cThat isn't a valid message."));
             }
             return true;
         }
