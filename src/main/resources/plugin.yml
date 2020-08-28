@@ -41,6 +41,7 @@ commands:
   list:
   invsee:
     aliases: [inventory]
+  freeze:
 
 permissions:
   astride.speed:
@@ -53,6 +54,10 @@ permissions:
       astride.vanish.see: true
       astride.vanish.vanish: true
 
+  astride.freeze:
+    description: Permission to freeze players
+  astride.freeze.exempt:
+    description: Permission to be exempted from freezing
   astride.fly:
     description: Permission to fly
   astride.heal:

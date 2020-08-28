@@ -117,4 +117,9 @@ public class vanishManager implements Listener {
             }
         }
     }
+
+    public static int vanishedPlayers() {
+        return Bukkit.getOnlinePlayers().size() - vanish.vanishedPlayers.size();
+    }
+
 }
