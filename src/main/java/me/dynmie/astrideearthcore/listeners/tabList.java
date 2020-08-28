@@ -39,7 +39,7 @@ public class tabList implements Listener {
 
             @Override
             public void run() {
-                
+                event.getPlayer().sendMessage("hi");
             }
         }.runTaskTimer(plugin, 0, 20);
     }
