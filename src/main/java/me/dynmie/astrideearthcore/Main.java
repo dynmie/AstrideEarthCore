@@ -68,6 +68,7 @@ public final class Main extends JavaPlugin {
         getCommand("invsee").setExecutor(new invsee(this));
         getCommand("freeze").setExecutor(new freeze(this));
         getCommand("teleport").setExecutor(new teleport(this));
+        getCommand("tpall").setExecutor(new tpall(this));
     }
 
     public void tabCompleter() {

@@ -21,7 +21,7 @@ public class messageCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player && args.length > 0) {
-            if (args.length > 2) {
+            if (args.length > 1) {
                 if (!(getPlayer(args[0]) == null)) {
                     Player messager = (Player) sender;
                     Player receiver = getPlayer(args[0]);
