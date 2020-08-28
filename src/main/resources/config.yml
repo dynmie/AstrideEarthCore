@@ -1,0 +1,24 @@
+#AstrideEarthCore by Dynmie
+prefix: '&6[&7&l!&6] &7'
+console: '&cOnly players can execute this command!'
+noperms: '&cYou do not have permission to execute this command.'
+#Fly
+enablefly: 'Flying &aenabled'
+disablefly: 'Flying &cdisabled'
+
+#toggles
+enabled: '&lenabled'
+disabled: '&ldisabled'
+
+slowtime: 2
+
+#CannotCraft
+CannotCraft: '&cYou cannot craft this item!'
+PlayerOffline: '&cThat player is offline.'
+
+KillAll: '&aKilled all entities'
+
+ping: '&aYour ping:'
+
+disabled-vanish: '&cYou have &ldisabled&c vanish.'
+enabled-vanish: '&aYou have &lenabled&a vanish.'

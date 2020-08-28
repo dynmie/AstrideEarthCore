@@ -1,0 +1,91 @@
+name: ${project.name}
+version: ${project.version}
+main: me.dynmie.astrideearthcore.Main
+depend: [Vault]
+softdepend: [LuckPerms]
+authors: [Astride Development]
+
+commands:
+  fly:
+  speed:
+    description: 'Changes your speed.'
+  gamemode:
+    aliases: [gm]
+    description: 'Changes your gamemode.'
+  heal:
+  feed:
+  message:
+    aliases: [msg, w, tell, whisper]
+  reply:
+    aliases: [r]
+    description: 'Replies to a user you have messaged before.'
+  flyspeed:
+    description: 'Changes your fly speed.'
+  walkspeed:
+    description: 'Changes your walk speed.'
+  kill:
+  chat:
+  sudo:
+  nightvision:
+    aliases: [nv]
+  disguise:
+  workbench:
+    aliases: [craft, wb]
+  enderchest:
+    aliases: [ec]
+  killall:
+    aliases: [mobkill]
+  ping:
+  vanish:
+    aliases: [v, s]
+  list:
+  invsee:
+    aliases: [inventory]
+
+permissions:
+  astride.speed:
+    description: Permission to change your speed
+    children:
+      astride.walkspeed: true
+      astride.flyspeed: true
+  astride.vanish:
+    children:
+      astride.vanish.see: true
+      astride.vanish.vanish: true
+
+  astride.fly:
+    description: Permission to fly
+  astride.heal:
+    description: Permission to heal
+  astride.feed:
+    description: Permission to feed
+  astride.chat:
+    description: Permission for chat commands
+  astride.kill:
+    description: Permission to kill
+  astride.gamemode:
+    description: Permission for gamemode change
+  astride.disguise:
+    description: Permission for disguising
+  astride.walkspeed:
+    description: Permission to change your speed
+  astride.flyspeed:
+    description: Permission to change your speed
+  astride.craft:
+    description: Permission for craft command
+  astride.craftexempt:
+    description: Permission for crafting exempt
+  astride.sudo:
+    description: Permission to use sudo command
+  astride.enderchest:
+    description: Permission to use enderchest command
+  astride.enderchest.others:
+    description: Permission to view the enderchests of other players
+  astride.kill.all:
+    description: Permission to kill all mobs
+  astride.vanish.see:
+    description: Permission to see vanished players
+  astride.vanish.vanish:
+    description: Permission to vanish
+  astride.invsee:
+    description: Permission to invsee
