@@ -31,7 +31,6 @@ public class chat implements CommandExecutor {
             for (i = 0; i < 100; i++)
                 for(Player player : Bukkit.getOnlinePlayers()) {
                         player.sendMessage(" ");
-
              }
             Bukkit.broadcastMessage(Utils.chat("&aThe chat has been cleared by &f" + sender.getName() + "&a."));
             Bukkit.broadcastMessage(" ");
