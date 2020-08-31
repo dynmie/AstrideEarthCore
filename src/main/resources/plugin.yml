@@ -35,7 +35,6 @@ commands:
     aliases: [ec]
   killall:
     aliases: [mobkill]
-  ping:
   vanish:
     aliases: [v, s]
   list:
@@ -46,6 +45,9 @@ commands:
     aliases: [tp]
   tpall:
     aliases: [teleportall]
+  tpask:
+    aliases: [tpa]
+  tpaccept:
 
 permissions:
   astride.speed:

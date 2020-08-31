@@ -1,5 +1,6 @@
 package me.dynmie.astrideearthcore.commands;
 
+import me.dynmie.astrideearthcore.Main;
 import me.dynmie.astrideearthcore.utils.Utils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -11,8 +12,8 @@ import javax.swing.*;
 import static org.bukkit.Bukkit.getPlayer;
 
 public class disguise implements CommandExecutor {
-
-    public disguise() {}
+    Main plugin;
+    public disguise(Main plugin) {this.plugin = plugin;}
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -22,7 +23,7 @@ public class disguise implements CommandExecutor {
         }
         Player player = (Player) sender;
         if (!(player.hasPermission("astride.nick"))) {
-            player.sendMessage(Utils.chat("&cYou do not have permission to execute this command."));
+            player.sendMessage(Utils.chat(plugin.getConfig().getString("noperms")));
             return true;
         }
 

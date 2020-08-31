@@ -1,7 +1,7 @@
 #AstrideEarthCore by Dynmie
 prefix: '&6[&7&l!&6] &7'
 console: '&cOnly players can execute this command!'
-noperms: '&cYou do not have permission to execute this command.'
+noperms: '&cNo permission.'
 #Fly
 enablefly: 'Flying &aenabled'
 disablefly: 'Flying &cdisabled'

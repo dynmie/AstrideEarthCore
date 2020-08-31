@@ -20,6 +20,8 @@ public class workbench implements CommandExecutor {
         Player player = (Player) sender;
         if (player.hasPermission("astride.craft")) {
             player.openWorkbench(null, true);
+        } else {
+            player.sendMessage(Utils.chat(plugin.getConfig().getString("noperms")));
         }
         return true;
     }

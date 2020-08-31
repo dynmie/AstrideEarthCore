@@ -1,6 +1,7 @@
 package me.dynmie.astrideearthcore.commands;
 
 
+import me.dynmie.astrideearthcore.Main;
 import me.dynmie.astrideearthcore.utils.Utils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,7 +10,9 @@ import org.bukkit.entity.Player;
 
 
 public class Fly implements CommandExecutor {
-    public Fly() {
+    Main plugin;
+    public Fly(Main plugin) {
+        this.plugin = plugin;
     }
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -19,7 +22,7 @@ public class Fly implements CommandExecutor {
         }
         Player player = (Player) sender;
         if (!(player.hasPermission("astride.fly"))) {
-            player.sendMessage(Utils.chat("&cYou do not have permission to execute this command."));
+            player.sendMessage(Utils.chat(plugin.getConfig().getString("noperms")));
             return false;
         }
         if (!(player.getAllowFlight())) {

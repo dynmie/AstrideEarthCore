@@ -1,5 +1,6 @@
 package me.dynmie.astrideearthcore.commands;
 
+import me.dynmie.astrideearthcore.Main;
 import me.dynmie.astrideearthcore.utils.Utils;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
@@ -14,9 +15,9 @@ import static org.bukkit.Bukkit.getPlayer;
 public class Gamemode implements TabExecutor {
     private Map<String, GameMode> modes = new HashMap<>();
 
-    // Set its values when the class is created
-    // This way this map is only set ONCE as it should be
-    public Gamemode() {
+    Main plugin;
+    public Gamemode(Main plugin) {
+        this.plugin = plugin;
         modes.put("0", GameMode.SURVIVAL);
         modes.put("1", GameMode.CREATIVE);
         modes.put("2", GameMode.ADVENTURE);
@@ -58,7 +59,7 @@ public class Gamemode implements TabExecutor {
             }
 
             if (!(player.hasPermission("astride.gamemode"))) {
-                player.sendMessage(Utils.chat("&cYou do not have permission to execute this command."));
+                player.sendMessage(Utils.chat(plugin.getConfig().getString("noperms")));
                 return true;
             }
 

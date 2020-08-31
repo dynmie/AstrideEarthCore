@@ -1,5 +1,6 @@
 package me.dynmie.astrideearthcore.commands;
 
+import me.dynmie.astrideearthcore.Main;
 import me.dynmie.astrideearthcore.utils.Utils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -8,8 +9,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 
 public class Heal implements CommandExecutor {
-    public Heal() {
-
+    Main plugin;
+    public Heal(Main plugin) {
+        this.plugin = plugin;
     }
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -19,7 +21,7 @@ public class Heal implements CommandExecutor {
         }
         Player player = (Player) sender;
         if (!(player.hasPermission("astride.heal"))) {
-            player.sendMessage(Utils.chat("&cYou do not have permission to execute this command."));
+            player.sendMessage(Utils.chat(plugin.getConfig().getString("noperms")));
             return true;
         } else {
             player.setHealth(20);

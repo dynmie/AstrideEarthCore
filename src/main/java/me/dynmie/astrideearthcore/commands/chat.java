@@ -17,7 +17,7 @@ public class chat implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender.hasPermission("astride.chat"))) {
-            sender.sendMessage(Utils.chat("&cYou do not have permission to execute this command."));
+            sender.sendMessage(Utils.chat(plugin.getConfig().getString("noperms")));
             return true;
         }
 

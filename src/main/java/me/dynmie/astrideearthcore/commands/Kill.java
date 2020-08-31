@@ -1,5 +1,6 @@
 package me.dynmie.astrideearthcore.commands;
 
+import me.dynmie.astrideearthcore.Main;
 import me.dynmie.astrideearthcore.utils.Utils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -9,14 +10,15 @@ import org.bukkit.entity.Player;
 import static org.bukkit.Bukkit.getPlayer;
 
 public class Kill implements CommandExecutor {
-    public Kill() {
-
+    Main plugin;
+    public Kill(Main plugin) {
+        this.plugin = plugin;
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender.hasPermission("astride.kill"))) {
-            sender.sendMessage(Utils.chat("&cYou do not have permission to execute this command."));
+            sender.sendMessage(Utils.chat(plugin.getConfig().getString("noperms")));
             return true;
         }
 
