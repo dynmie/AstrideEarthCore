@@ -67,6 +67,8 @@ permissions:
     description: Permission to feed
   astride.chat:
     description: Permission for chat commands
+  astride.chat.format:
+    description: Permission for chat formatting, eg/ italics, bold
   astride.kill:
     description: Permission to kill
   astride.gamemode:

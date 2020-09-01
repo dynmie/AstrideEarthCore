@@ -59,4 +59,16 @@ public class chatListener implements Listener {
         }
     }
 
+    @EventHandler
+    public void setPlayerChatFormat(AsyncPlayerChatEvent event) {
+        Player player = event.getPlayer();
+        String prefix = Main.getChat().getPlayerPrefix(player);
+        String format = plugin.getConfig().getString("chatformat").replace("%player%", prefix + player.getDisplayName());
+        if (player.hasPermission("astride.chatformat")) {
+            event.setFormat(Utils.chat(format.replace("%message%", event.getMessage())));
+        } else {
+            event.setFormat(Utils.chat(format).replace("%message%", event.getMessage()));
+        }
+    }
+
 }
