@@ -1,3 +1,4 @@
+# §
 #AstrideEarthCore by Dynmie
 prefix: '&6[&7&l!&6] &7'
 console: '&cOnly players can execute this command!'
@@ -5,6 +6,16 @@ noperms: '&cNo permission.'
 #Fly
 enablefly: 'Flying &aenabled'
 disablefly: 'Flying &cdisabled'
+
+#Handle ChatSystem
+# %player% = player with prefix
+# %message% = message
+# %chatcolor% = chatcolor
+# Color codes are allowed
+# System EventHandler is set to NORMAL
+chatsystem: true
+chatformat: '&f%player% &7» %message%'
+messageformat: '%chatcolor%%message%'
 
 #toggles
 enabled: '&lenabled'
