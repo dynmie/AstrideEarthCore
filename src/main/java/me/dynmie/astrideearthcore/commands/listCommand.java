@@ -6,8 +6,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-public class list implements CommandExecutor {
-    public list() {
+public class listCommand implements CommandExecutor {
+    public listCommand() {
     }
 
     @Override

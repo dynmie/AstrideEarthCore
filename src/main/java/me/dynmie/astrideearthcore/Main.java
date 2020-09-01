@@ -62,7 +62,7 @@ public final class Main extends JavaPlugin {
         getCommand("nightvision").setExecutor(new nightvisionCommand());
         getCommand("chat").setExecutor(new chatCommand(this, this));
         getCommand("killall").setExecutor(new killallCommand(this));
-        getCommand("list").setExecutor(new list());
+        getCommand("list").setExecutor(new listCommand());
         getCommand("invsee").setExecutor(new invseeCommand(this));
         getCommand("freeze").setExecutor(new freezeCommand(this));
         getCommand("teleport").setExecutor(new teleportCommand(this));
