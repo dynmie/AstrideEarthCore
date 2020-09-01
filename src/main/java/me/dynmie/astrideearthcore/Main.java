@@ -7,8 +7,6 @@ import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -17,7 +15,7 @@ import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 
 public final class Main extends JavaPlugin {
-    public messageManager mM;
+    public messagingListener mM;
     private static Economy econ;
     private static Permission perms;
     private static Chat chat;
@@ -46,44 +44,44 @@ public final class Main extends JavaPlugin {
 
     public void startCommands() {
         getLogger().info("AstrideEarth Enabled");
-        getCommand("fly").setExecutor(new Fly());
-        getCommand("speed").setExecutor(new Speed());
-        getCommand("enderchest").setExecutor(new enderChest(this));
-        getCommand("gamemode").setExecutor(new Gamemode());
-        getCommand("heal").setExecutor(new Heal());
-        getCommand("feed").setExecutor(new Feed());
+        getCommand("fly").setExecutor(new flyCommand());
+        getCommand("speed").setExecutor(new speedCommand());
+        getCommand("enderchest").setExecutor(new enderchestCommand(this));
+        getCommand("gamemode").setExecutor(new gamemodeCommand());
+        getCommand("heal").setExecutor(new healCommand());
+        getCommand("feed").setExecutor(new feedCommand());
         getCommand("message").setExecutor(new messageCommand(this));
         getCommand("reply").setExecutor(new replyCommand(this));
-        getCommand("flyspeed").setExecutor(new flySpeed());
-        getCommand("walkspeed").setExecutor(new walkSpeed());
-        getCommand("workbench").setExecutor(new workbench(this));
-        getCommand("kill").setExecutor(new Kill());
-        getCommand("sudo").setExecutor(new sudo());
-        getCommand("vanish").setExecutor(new vanish(this));
-        getCommand("disguise").setExecutor(new disguise());
-        getCommand("nightvision").setExecutor(new nightVision());
-        getCommand("chat").setExecutor(new chat(this, this));
-        getCommand("killall").setExecutor(new killAll(this));
+        getCommand("flyspeed").setExecutor(new flyspeedCommand());
+        getCommand("walkspeed").setExecutor(new walkspeedCommand());
+        getCommand("workbench").setExecutor(new workbenchCommand(this));
+        getCommand("kill").setExecutor(new killCommand());
+        getCommand("sudo").setExecutor(new sudoCommand());
+        getCommand("vanish").setExecutor(new vanishCommand(this));
+        getCommand("disguise").setExecutor(new disguiseCommand());
+        getCommand("nightvision").setExecutor(new nightvisionCommand());
+        getCommand("chat").setExecutor(new chatCommand(this, this));
+        getCommand("killall").setExecutor(new killallCommand(this));
         getCommand("list").setExecutor(new list());
-        getCommand("invsee").setExecutor(new invsee(this));
-        getCommand("freeze").setExecutor(new freeze(this));
-        getCommand("teleport").setExecutor(new teleport(this));
-        getCommand("tpall").setExecutor(new tpall(this));
-        getCommand("tpask").setExecutor(new tpask(this));
+        getCommand("invsee").setExecutor(new invseeCommand(this));
+        getCommand("freeze").setExecutor(new freezeCommand(this));
+        getCommand("teleport").setExecutor(new teleportCommand(this));
+        getCommand("tpall").setExecutor(new tpallCommand(this));
+        getCommand("tpask").setExecutor(new tpaskCommand(this));
     }
 
     public void tabCompleter() {
-        getCommand("gamemode").setTabCompleter(new Gamemode());
+        getCommand("gamemode").setTabCompleter(new gamemodeCommand());
     }
 
     public void registerEvents() {
-        getServer().getPluginManager().registerEvents(new joinLeaveMessages(this), this);
-        getServer().getPluginManager().registerEvents(new vanishManager(this), this);
-        getServer().getPluginManager().registerEvents(new ToggleChat(this), this);
-        getServer().getPluginManager().registerEvents(new SlowMode(this), this);
-        getServer().getPluginManager().registerEvents(new cannotCraft(this), this);
-        getServer().getPluginManager().registerEvents(new freezeManager(this), this);
-        mM = new messageManager(this);
+        getServer().getPluginManager().registerEvents(new joinLeaveListener(this), this);
+        getServer().getPluginManager().registerEvents(new vanishListener(this), this);
+        getServer().getPluginManager().registerEvents(new chatToggleListener(this), this);
+        getServer().getPluginManager().registerEvents(new chatSlowListener(this), this);
+        getServer().getPluginManager().registerEvents(new craftListener(this), this);
+        getServer().getPluginManager().registerEvents(new freezeListener(this), this);
+        mM = new messagingListener(this);
     }
 
     public void configLoader() {
@@ -148,7 +146,7 @@ public final class Main extends JavaPlugin {
             @Override
             public void run() {
                 for (Player player : Bukkit.getOnlinePlayers()) {
-                    player.setPlayerListHeaderFooter("\nHeader, " + vanishManager.vanishedPlayers() + " online.\n", "\nFooter\n");
+                    player.setPlayerListHeaderFooter("\nHeader, " + vanishListener.vanishedPlayers() + " online.\n", "\nFooter\n");
                     String group = Main.getChat().getPrimaryGroup(player);
                     if (group.equalsIgnoreCase("owner")) {
                         owner.addEntry(player.getName());

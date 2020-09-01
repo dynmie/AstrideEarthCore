@@ -9,9 +9,9 @@ import org.bukkit.entity.Player;
 
 import static org.bukkit.Bukkit.getPlayer;
 
-public class sudo implements CommandExecutor {
+public class sudoCommand implements CommandExecutor {
     Main plugin;
-    public sudo(Main plugin) {this.plugin = plugin;}
+    public sudoCommand(Main plugin) {this.plugin = plugin;}
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

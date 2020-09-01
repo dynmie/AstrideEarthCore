@@ -11,9 +11,9 @@ import javax.swing.*;
 
 import static org.bukkit.Bukkit.getPlayer;
 
-public class disguise implements CommandExecutor {
+public class disguiseCommand implements CommandExecutor {
     Main plugin;
-    public disguise(Main plugin) {this.plugin = plugin;}
+    public disguiseCommand(Main plugin) {this.plugin = plugin;}
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

@@ -12,10 +12,10 @@ import org.bukkit.entity.Player;
 import static java.lang.String.valueOf;
 import static org.bukkit.Bukkit.*;
 
-public class teleport implements CommandExecutor {
+public class teleportCommand implements CommandExecutor {
 
     Main plugin;
-    public teleport(Main plugin) {this.plugin = plugin;}
+    public teleportCommand(Main plugin) {this.plugin = plugin;}
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

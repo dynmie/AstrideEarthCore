@@ -6,9 +6,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-public class joinLeaveMessages implements Listener {
+public class joinLeaveListener implements Listener {
     Main plugin;
-    public joinLeaveMessages(Main plugin) {
+    public joinLeaveListener(Main plugin) {
         this.plugin = plugin;
     }
 

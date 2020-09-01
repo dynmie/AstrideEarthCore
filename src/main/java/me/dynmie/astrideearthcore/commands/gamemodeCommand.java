@@ -12,11 +12,11 @@ import java.util.*;
 
 import static org.bukkit.Bukkit.getPlayer;
 
-public class Gamemode implements TabExecutor {
+public class gamemodeCommand implements TabExecutor {
     private Map<String, GameMode> modes = new HashMap<>();
 
     Main plugin;
-    public Gamemode(Main plugin) {
+    public gamemodeCommand(Main plugin) {
         this.plugin = plugin;
         modes.put("0", GameMode.SURVIVAL);
         modes.put("1", GameMode.CREATIVE);

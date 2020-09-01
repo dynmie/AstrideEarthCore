@@ -12,11 +12,11 @@ import org.bukkit.potion.PotionEffectType;
 
 import java.util.ArrayList;
 
-public class vanish implements CommandExecutor {
+public class vanishCommand implements CommandExecutor {
     public static ArrayList<Player> vanishedPlayers = new ArrayList<>();
 
     Main plugin;
-    public vanish(Main plugin) {this.plugin = plugin;}
+    public vanishCommand(Main plugin) {this.plugin = plugin;}
 
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
         if (!(sender instanceof Player)) {

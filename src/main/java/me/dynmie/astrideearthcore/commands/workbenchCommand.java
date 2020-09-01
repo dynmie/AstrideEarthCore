@@ -7,24 +7,21 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Feed implements CommandExecutor {
+public class workbenchCommand implements CommandExecutor {
     Main plugin;
-    public Feed(Main plugin) {
-        this.plugin = plugin;
-    }
+    public workbenchCommand(Main plugin) {this.plugin = plugin;}
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage(Utils.chat("&cOnly players can execute this command!"));
+            sender.sendMessage(Utils.chat(this.plugin.getConfig().getString("console")));
             return true;
         }
         Player player = (Player) sender;
-        if (!(player.hasPermission("astride.feed"))) {
-            player.sendMessage(Utils.chat(plugin.getConfig().getString("noperms")));
-            return true;
+        if (player.hasPermission("astride.craft")) {
+            player.openWorkbench(null, true);
         } else {
-            player.sendMessage(Utils.chat("&aYou have been fed."));
-            player.setFoodLevel(20);
+            player.sendMessage(Utils.chat(plugin.getConfig().getString("noperms")));
         }
         return true;
     }

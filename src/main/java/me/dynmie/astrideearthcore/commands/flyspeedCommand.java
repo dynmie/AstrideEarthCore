@@ -7,9 +7,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class flySpeed implements CommandExecutor {
+public class flyspeedCommand implements CommandExecutor {
     Main plugin;
-    public flySpeed(Main plugin) {
+    public flyspeedCommand(Main plugin) {
         this.plugin = plugin;
     }
 

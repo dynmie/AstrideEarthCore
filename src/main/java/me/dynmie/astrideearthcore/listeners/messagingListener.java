@@ -5,13 +5,13 @@ import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 
-public class messageManager {
+public class messagingListener {
 
     Main plugin;
 
     HashMap<Player, Player> conversations = new HashMap<>();
 
-    public messageManager(Main textWarp) {
+    public messagingListener(Main textWarp) {
         plugin = textWarp;
     }
     public void setReplyTarget(Player messager, Player reciever) {

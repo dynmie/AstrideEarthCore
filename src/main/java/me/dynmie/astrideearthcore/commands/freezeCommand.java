@@ -11,12 +11,12 @@ import java.util.ArrayList;
 
 import static org.bukkit.Bukkit.getPlayer;
 
-public class freeze implements CommandExecutor {
+public class freezeCommand implements CommandExecutor {
 
     public static ArrayList<Player> frozenPlayers = new ArrayList<>();
 
     Main plugin;
-    public freeze(Main plugin) {
+    public freezeCommand(Main plugin) {
         this.plugin = plugin;
     }
 

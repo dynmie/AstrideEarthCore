@@ -9,9 +9,9 @@ import org.bukkit.entity.Player;
 
 import static org.bukkit.Bukkit.getPlayer;
 
-public class Kill implements CommandExecutor {
+public class killCommand implements CommandExecutor {
     Main plugin;
-    public Kill(Main plugin) {
+    public killCommand(Main plugin) {
         this.plugin = plugin;
     }
 

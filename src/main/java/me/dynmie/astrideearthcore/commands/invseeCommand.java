@@ -6,31 +6,38 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.potion.PotionEffect;
 
-public class Heal implements CommandExecutor {
+import static org.bukkit.Bukkit.getPlayer;
+
+public class invseeCommand implements CommandExecutor {
     Main plugin;
-    public Heal(Main plugin) {
+    public invseeCommand(Main plugin) {
         this.plugin = plugin;
     }
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage(Utils.chat("&cOnly players can execute this command!"));
+            sender.sendMessage(Utils.chat(plugin.getConfig().getString("console")));
             return true;
         }
         Player player = (Player) sender;
-        if (!(player.hasPermission("astride.heal"))) {
+        if (!(player.hasPermission("astride.invsee"))) {
             player.sendMessage(Utils.chat(plugin.getConfig().getString("noperms")));
-            return true;
-        } else {
-            player.setHealth(20);
-            player.setFoodLevel(20);
-            player.setFireTicks(0);
-            for (PotionEffect effect : player.getActivePotionEffects())
-                player.removePotionEffect(effect.getType());
-            player.sendMessage(Utils.chat("&aYou have been healed."));
         }
+
+        if (args.length == 0) {
+            player.sendMessage(Utils.chat("&cUsage: /" + command.getName() + " <player>"));
+            return true;
+        }
+
+        if (getPlayer(args[0]) == null) {
+            sender.sendMessage(Utils.chat(plugin.getConfig().getString("PlayerOffline")));
+            return true;
+        }
+        Player target = getPlayer(args[0]);
+        player.openInventory(target.getInventory());
+
         return true;
     }
 }

@@ -8,9 +8,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-public class killAll implements CommandExecutor {
+public class killallCommand implements CommandExecutor {
     Main plugin;
-    public killAll(Main plugin) {this.plugin = plugin;}
+    public killallCommand(Main plugin) {this.plugin = plugin;}
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

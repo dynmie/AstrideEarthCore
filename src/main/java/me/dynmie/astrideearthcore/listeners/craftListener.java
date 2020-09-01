@@ -11,9 +11,9 @@ import org.bukkit.event.inventory.PrepareItemCraftEvent;
 import org.bukkit.inventory.ItemStack;
 
 
-public class cannotCraft implements Listener {
+public class craftListener implements Listener {
     Main plugin;
-    public cannotCraft(Main plugin) {this.plugin = plugin;}
+    public craftListener(Main plugin) {this.plugin = plugin;}
 
     @EventHandler
     public void craftItem(PrepareItemCraftEvent event) {

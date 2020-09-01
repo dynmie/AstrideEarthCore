@@ -8,9 +8,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class chat implements CommandExecutor {
+public class chatCommand implements CommandExecutor {
     private Main plugin;
-    public chat(Main main, Main plugin) {
+    public chatCommand(Main main, Main plugin) {
         this.plugin = plugin;
     }
     public static boolean muted = false;

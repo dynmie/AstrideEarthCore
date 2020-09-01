@@ -9,9 +9,9 @@ import org.bukkit.entity.Player;
 
 import static org.bukkit.Bukkit.getPlayer;
 
-public class enderChest implements CommandExecutor {
+public class enderchestCommand implements CommandExecutor {
     Main plugin;
-    public enderChest(Main plugin) {this.plugin = plugin;}
+    public enderchestCommand(Main plugin) {this.plugin = plugin;}
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

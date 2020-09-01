@@ -12,9 +12,9 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SlowMode implements Listener {
+public class chatSlowListener implements Listener {
     private Main plugin;
-    public SlowMode(Main plugin) {this.plugin = plugin;}
+    public chatSlowListener(Main plugin) {this.plugin = plugin;}
 
     private final Map<String, Long> cooldownTime = new HashMap<>();
 

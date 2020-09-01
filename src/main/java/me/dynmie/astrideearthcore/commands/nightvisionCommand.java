@@ -12,9 +12,9 @@ import org.bukkit.potion.PotionEffectType;
 import static org.bukkit.Bukkit.getPlayer;
 
 
-public class nightVision implements CommandExecutor {
+public class nightvisionCommand implements CommandExecutor {
     Main plugin;
-    public nightVision(Main plugin) {
+    public nightvisionCommand(Main plugin) {
         this.plugin = plugin;
     }
 
