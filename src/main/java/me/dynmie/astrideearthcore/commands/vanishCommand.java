@@ -53,7 +53,6 @@ public class vanishCommand implements TabExecutor {
                 }
 
                 player.setPlayerListName(Utils.displayName(prefix, player.getDisplayName()));
-                player.removePotionEffect(PotionEffectType.NIGHT_VISION);
                 player.sendMessage("§cYou have §ldisabled§c full vanish.");
             } else if (!(fullVanishedPlayers.contains(player))){
                 if (!(vanishedPlayers.contains(player))) vanishedPlayers.add(player);
@@ -107,7 +106,6 @@ public class vanishCommand implements TabExecutor {
         List<String> list = new ArrayList<>();
         if (args.length == 0) {
             list.add("full");
-            list.add("f");
             Collections.sort(list);
             return list;
         } else if (args.length == 1) {
