@@ -6,10 +6,14 @@ import me.dynmie.astrideearthcore.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.*;
+import org.bukkit.event.player.PlayerChangedWorldEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.potion.PotionEffect;
@@ -123,6 +127,38 @@ public class vanishManager implements Listener {
         if (event.getEntity() instanceof Player) {
             if (vanish.vanishedPlayers.contains(event.getEntity())) {
                 event.setCancelled(true);
+            }
+        }
+    }
+
+    @EventHandler
+    public void onPlayerCropTrample(PlayerInteractEvent event) {
+        Player player = event.getPlayer();
+        if (!(vanish.vanishedPlayers.contains(player))) return;
+        if (event.getAction() != Action.PHYSICAL) return;
+        if (event.getClickedBlock() != null && event.getClickedBlock().getType().toString().matches("SOIL|FARMLAND"))  event.setCancelled(true);
+    }
+
+    @EventHandler(priority = EventPriority.HIGH)
+    public void onPlayerDeath(PlayerDeathEvent e) {
+        Player p = e.getEntity();
+        if (vanish.vanishedPlayers.contains(p)) e.setDeathMessage(null);
+    }
+
+    @EventHandler(priority = EventPriority.HIGH)
+    public void onPlayerChangeWorld(PlayerChangedWorldEvent event) {
+        Player player = event.getPlayer();
+        if (!(vanish.vanishedPlayers.contains(player))) return;
+        if (player.hasPermission("astride.vanish.vanish")) {
+            for (Player online : Bukkit.getOnlinePlayers()) {
+                if (!(online.hasPermission("astride.vanish.see"))) {
+                    online.hidePlayer(plugin, player);
+                }
+            }
+        }
+        if (!(player.hasPermission("astride.vanish.see"))) {
+            for (int i = 0; i < vanish.vanishedPlayers.size(); i++) {
+                player.hidePlayer(plugin, vanish.vanishedPlayers.get(i));
             }
         }
     }
