@@ -44,22 +44,22 @@ public final class Main extends JavaPlugin {
 
     public void startCommands() {
         getLogger().info("AstrideEarth Enabled");
-        getCommand("fly").setExecutor(new flyCommand());
-        getCommand("speed").setExecutor(new speedCommand());
+        getCommand("fly").setExecutor(new flyCommand(this));
+        getCommand("speed").setExecutor(new speedCommand(this));
         getCommand("enderchest").setExecutor(new enderchestCommand(this));
-        getCommand("gamemode").setExecutor(new gamemodeCommand());
-        getCommand("heal").setExecutor(new healCommand());
-        getCommand("feed").setExecutor(new feedCommand());
+        getCommand("gamemode").setExecutor(new gamemodeCommand(this));
+        getCommand("heal").setExecutor(new healCommand(this));
+        getCommand("feed").setExecutor(new feedCommand(this));
         getCommand("message").setExecutor(new messageCommand(this));
         getCommand("reply").setExecutor(new replyCommand(this));
-        getCommand("flyspeed").setExecutor(new flyspeedCommand());
-        getCommand("walkspeed").setExecutor(new walkspeedCommand());
+        getCommand("flyspeed").setExecutor(new flyspeedCommand(this));
+        getCommand("walkspeed").setExecutor(new walkspeedCommand(this));
         getCommand("workbench").setExecutor(new workbenchCommand(this));
-        getCommand("kill").setExecutor(new killCommand());
-        getCommand("sudo").setExecutor(new sudoCommand());
+        getCommand("kill").setExecutor(new killCommand(this));
+        getCommand("sudo").setExecutor(new sudoCommand(this));
         getCommand("vanish").setExecutor(new vanishCommand(this));
-        getCommand("disguise").setExecutor(new disguiseCommand());
-        getCommand("nightvision").setExecutor(new nightvisionCommand());
+        getCommand("disguise").setExecutor(new disguiseCommand(this));
+        getCommand("nightvision").setExecutor(new nightvisionCommand(this));
         getCommand("chat").setExecutor(new chatCommand(this, this));
         getCommand("killall").setExecutor(new killallCommand(this));
         getCommand("list").setExecutor(new listCommand());
@@ -71,14 +71,13 @@ public final class Main extends JavaPlugin {
     }
 
     public void tabCompleter() {
-        getCommand("gamemode").setTabCompleter(new gamemodeCommand());
+        getCommand("gamemode").setTabCompleter(new gamemodeCommand(this));
     }
 
     public void registerEvents() {
         getServer().getPluginManager().registerEvents(new joinLeaveListener(this), this);
         getServer().getPluginManager().registerEvents(new vanishListener(this), this);
-        getServer().getPluginManager().registerEvents(new chatToggleListener(this), this);
-        getServer().getPluginManager().registerEvents(new chatSlowListener(this), this);
+        getServer().getPluginManager().registerEvents(new chatListener(this), this);
         getServer().getPluginManager().registerEvents(new craftListener(this), this);
         getServer().getPluginManager().registerEvents(new freezeListener(this), this);
         mM = new messagingListener(this);
