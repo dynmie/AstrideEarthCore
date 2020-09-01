@@ -35,7 +35,7 @@ public class vanishCommand implements TabExecutor {
         }
 
         if (args.length > 0) {
-            if (!(args[0].equalsIgnoreCase("full"))) return true;
+            if (!(args[0].equalsIgnoreCase("full") || args[0].equalsIgnoreCase("f"))) return true;
             if (!(player.hasPermission("astride.vanish.full"))) {
                 player.sendMessage(Utils.chat(plugin.getConfig().getString("noperms")));
                 return true;
@@ -107,10 +107,12 @@ public class vanishCommand implements TabExecutor {
         List<String> list = new ArrayList<>();
         if (args.length == 0) {
             list.add("full");
+            list.add("f");
             Collections.sort(list);
             return list;
         } else if (args.length == 1) {
             list.add("full");
+            list.add("f");
             list.removeIf(s -> !s.toLowerCase().startsWith(args[0].toLowerCase()));
             Collections.sort(list);
             return list;
