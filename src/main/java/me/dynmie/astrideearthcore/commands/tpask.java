@@ -46,6 +46,7 @@ public class tpask implements CommandExecutor {
                 teleportAskPlayers.remove(player);
                 teleportAskPlayers.put(player, target);
                 player.sendMessage(Utils.chat("&aSent a t"));
+                //TODO: Fix this error
                 return true;
             }
         }
