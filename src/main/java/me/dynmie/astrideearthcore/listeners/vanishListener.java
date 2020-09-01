@@ -148,17 +148,31 @@ public class vanishListener implements Listener {
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerChangeWorld(PlayerChangedWorldEvent event) {
         Player player = event.getPlayer();
-        if (!(vanishCommand.vanishedPlayers.contains(player))) return;
-        if (player.hasPermission("astride.vanish.vanish")) {
-            for (Player online : Bukkit.getOnlinePlayers()) {
-                if (!(online.hasPermission("astride.vanish.see"))) {
-                    online.hidePlayer(plugin, player);
+        if (vanishCommand.vanishedPlayers.contains(player) && !vanishCommand.fullVanishedPlayers.contains(player)) {
+            if (player.hasPermission("astride.vanish.vanish")) {
+                for (Player online : Bukkit.getOnlinePlayers()) {
+                    if (!(online.hasPermission("astride.vanish.see"))) {
+                        online.hidePlayer(plugin, player);
+                    }
                 }
             }
-        }
-        if (!(player.hasPermission("astride.vanish.see"))) {
-            for (int i = 0; i < vanishCommand.vanishedPlayers.size(); i++) {
-                player.hidePlayer(plugin, vanishCommand.vanishedPlayers.get(i));
+            if (!(player.hasPermission("astride.vanish.see"))) {
+                for (int i = 0; i < vanishCommand.vanishedPlayers.size(); i++) {
+                    player.hidePlayer(plugin, vanishCommand.vanishedPlayers.get(i));
+                }
+            }
+        } else if (vanishCommand.vanishedPlayers.contains(player) && vanishCommand.fullVanishedPlayers.contains(player)) {
+            if (player.hasPermission("astride.vanish.full")) {
+                for (Player online : Bukkit.getOnlinePlayers()) {
+                    if (!(online.hasPermission("astride.vanish.exempt"))) {
+                        online.hidePlayer(plugin, player);
+                    }
+                }
+            }
+            if (!(player.hasPermission("astride.vanish.exempt"))) {
+                for (int i = 0; i < vanishCommand.vanishedPlayers.size(); i++) {
+                    player.hidePlayer(plugin, vanishCommand.vanishedPlayers.get(i));
+                }
             }
         }
     }
