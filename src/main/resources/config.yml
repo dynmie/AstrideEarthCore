@@ -14,7 +14,7 @@ disablefly: 'Flying &cdisabled'
 # Color codes are allowed
 # System EventHandler is set to NORMAL
 chatsystem: true
-chatformat: '&f%player% &7» %message%'
+chatformat: '&f%player% &7»&f %message%'
 messageformat: '%chatcolor%%message%'
 
 #toggles
