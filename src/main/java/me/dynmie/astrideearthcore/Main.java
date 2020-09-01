@@ -70,6 +70,7 @@ public final class Main extends JavaPlugin {
 
     public void tabCompleter() {
         getCommand("gamemode").setTabCompleter(new gamemodeCommand(this));
+        getCommand("vanish").setTabCompleter(new vanishCommand(this));
     }
 
     public void registerEvents() {

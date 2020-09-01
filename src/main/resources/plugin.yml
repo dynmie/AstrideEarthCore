@@ -55,7 +55,6 @@ permissions:
     children:
       astride.vanish.see: true
       astride.vanish.vanish: true
-
   astride.freeze:
     description: Permission to freeze players
   astride.freeze.exempt:
@@ -94,3 +93,7 @@ permissions:
     description: Permission to teleport
   astride.teleport.all:
     description: Permission to teleport everyone to your location
+  astride.vanish.full:
+    description: Permission to vanish from all players including staff
+  astride.vanish.exempt:
+    description: Permission to be exempted from fullvanish.
