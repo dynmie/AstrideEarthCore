@@ -29,10 +29,6 @@ commands:
   nightvision:
     aliases: [nv]
   disguise:
-  workbench:
-    aliases: [craft, wb]
-  enderchest:
-    aliases: [ec]
   killall:
     aliases: [mobkill]
   vanish:
@@ -82,16 +78,10 @@ permissions:
     description: Permission to change your speed
   astride.flyspeed:
     description: Permission to change your speed
-  astride.craft:
-    description: Permission for craft command
   astride.craftexempt:
     description: Permission for crafting exempt
   astride.sudo:
     description: Permission to use sudo command
-  astride.enderchest:
-    description: Permission to use enderchest command
-  astride.enderchest.others:
-    description: Permission to view the enderchests of other players
   astride.kill.all:
     description: Permission to kill all mobs
   astride.vanish.see:

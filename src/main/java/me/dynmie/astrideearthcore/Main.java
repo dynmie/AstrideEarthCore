@@ -46,7 +46,6 @@ public final class Main extends JavaPlugin {
         getLogger().info("AstrideEarth Enabled");
         getCommand("fly").setExecutor(new flyCommand(this));
         getCommand("speed").setExecutor(new speedCommand(this));
-        getCommand("enderchest").setExecutor(new enderchestCommand(this));
         getCommand("gamemode").setExecutor(new gamemodeCommand(this));
         getCommand("heal").setExecutor(new healCommand(this));
         getCommand("feed").setExecutor(new feedCommand(this));
@@ -54,7 +53,6 @@ public final class Main extends JavaPlugin {
         getCommand("reply").setExecutor(new replyCommand(this));
         getCommand("flyspeed").setExecutor(new flyspeedCommand(this));
         getCommand("walkspeed").setExecutor(new walkspeedCommand(this));
-        getCommand("workbench").setExecutor(new workbenchCommand(this));
         getCommand("kill").setExecutor(new killCommand(this));
         getCommand("sudo").setExecutor(new sudoCommand(this));
         getCommand("vanish").setExecutor(new vanishCommand(this));
