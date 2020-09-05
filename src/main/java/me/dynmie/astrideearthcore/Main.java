@@ -2,11 +2,13 @@ package me.dynmie.astrideearthcore;
 
 import me.dynmie.astrideearthcore.commands.*;
 import me.dynmie.astrideearthcore.listeners.*;
+import me.dynmie.astrideearthcore.utils.PlayerData;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -14,14 +16,18 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 
+import java.awt.*;
+
 public final class Main extends JavaPlugin {
     public messagingListener mM;
     private static Economy econ;
     private static Permission perms;
     private static Chat chat;
+    private static Plugin plugin;
 
     @Override
     public void onEnable() {
+        plugin = this;
         /*if (!setupEconomy() ) {
             getLogger().severe(String.format("[%s] - Disabled due to no Vault dependency found!", getDescription().getName()));
             getServer().getPluginManager().disablePlugin(this);
@@ -39,6 +45,7 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        plugin = null;
         getLogger().info("AstrideEarth Disabled");
     }
 
@@ -86,7 +93,6 @@ public final class Main extends JavaPlugin {
         saveDefaultConfig();
         reloadConfig();
     }
-
 
     private boolean setupEconomy() {
         if (getServer().getPluginManager().getPlugin("Vault") == null) {
@@ -179,5 +185,9 @@ public final class Main extends JavaPlugin {
 
 
 }
+
+    public static Plugin getPlugin() {
+        return plugin;
+    }
 }
 
