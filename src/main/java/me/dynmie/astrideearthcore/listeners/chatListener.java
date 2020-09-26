@@ -32,7 +32,7 @@ public class chatListener implements Listener {
             long earliestNext = lastChat + plugin.getConfig().getInt("slowtime") * 1000;
             if (now < earliestNext) {
                 int timeRemaining = (int) ((earliestNext - now) / 1000L) + 1;
-                player.sendMessage(Utils.chat("&cPlease wait " + timeRemaining + " second" + (timeRemaining > 1 ? "s" : "") + " before talking again."));
+                player.sendMessage(Utils.chat("&cPlease wait &f" + timeRemaining + " second" + (timeRemaining > 1 ? "s" : "") + "&c before talking again."));
                 event.setCancelled(true);
                 return;
             }

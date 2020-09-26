@@ -43,7 +43,7 @@ public class sudoCommand implements CommandExecutor {
                     execute += " " + arg;
                 }
                 target.performCommand(execute.trim());
-                sender.sendMessage(Utils.chat("&aYou have forced &f" + target.getDisplayName() + " &ato execute &f/" + execute.trim() + "&a."));
+                sender.sendMessage(Utils.chat("&bYou have forced &f" + target.getDisplayName() + " &ato execute &f/" + execute.trim() + "&a."));
             } else {
                 sender.sendMessage(Utils.chat("&cProvide a valid command to execute."));
             }

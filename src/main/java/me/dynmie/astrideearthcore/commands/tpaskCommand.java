@@ -45,7 +45,7 @@ public class tpaskCommand implements CommandExecutor {
             if (teleportAskPlayers.containsKey(player)) {
                 teleportAskPlayers.remove(player);
                 teleportAskPlayers.put(player, target);
-                player.sendMessage(Utils.chat("&aSent a t"));
+                player.sendMessage(Utils.chat("&bSent a teleport request to "));
                 //TODO: Fix this error
                 return true;
             }

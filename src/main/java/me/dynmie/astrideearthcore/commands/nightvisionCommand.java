@@ -36,7 +36,7 @@ public class nightvisionCommand implements CommandExecutor {
                 player.sendMessage(Utils.chat("&cNight Vision &ldisabled&c."));
             } else {
                 player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 1000000, 0));
-                player.sendMessage(Utils.chat("&aNight Vision &lenabled&a."));
+                player.sendMessage(Utils.chat("&bNight Vision &lenabled&a."));
             }
             return true;
         }
@@ -53,8 +53,8 @@ public class nightvisionCommand implements CommandExecutor {
                     player.sendMessage(Utils.chat("&cNight Vision &ldisabled&c for &l" + target.getDisplayName() + "&c."));
                 } else {
                     player.addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 1000000, 0));
-                    target.sendMessage(Utils.chat("&aNight Vision &lenabled&a."));
-                    player.sendMessage(Utils.chat("&aNight Vision &lenabled&a for &l" + target.getDisplayName() + "&a."));
+                    target.sendMessage(Utils.chat("&bNight Vision &lenabled&a."));
+                    player.sendMessage(Utils.chat("&bNight Vision &lenabled&a for &l" + target.getDisplayName() + "&a."));
                 }
                 return true;
             }

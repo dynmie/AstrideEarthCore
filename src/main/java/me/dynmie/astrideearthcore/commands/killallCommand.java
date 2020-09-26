@@ -32,7 +32,7 @@ public class killallCommand implements CommandExecutor {
                 entities = entities + 1;
             }
         }
-        player.sendMessage(Utils.chat(this.plugin.getConfig().getString("KillAll") + " &7(" + entities + " entities)&a."));
+        player.sendMessage(Utils.chat(this.plugin.getConfig().getString("KillAll") + " &7(" + entities + " entities)&b."));
 
         return true;
     }

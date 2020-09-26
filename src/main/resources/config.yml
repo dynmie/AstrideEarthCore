@@ -1,6 +1,5 @@
 # §
 #AstrideEarthCore by Dynmie
-prefix: '&6[&7&l!&6] &7'
 console: '&cOnly players can execute this command!'
 noperms: '&cNo permission.'
 #Fly
@@ -32,4 +31,4 @@ KillAll: '&aKilled all entities'
 ping: '&aYour ping:'
 
 disabled-vanish: '&cYou have &ldisabled&c vanish.'
-enabled-vanish: '&aYou have &lenabled&a vanish.'
+enabled-vanish: '&bYou have &lenabled&a vanish.'

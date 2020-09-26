@@ -44,7 +44,7 @@ public class teleportCommand implements CommandExecutor {
             } else {
                 player.teleport(target);
             }
-            player.sendMessage(Utils.chat("&aTeleported to &f" + target.getName() + "&a."));
+            player.sendMessage(Utils.chat("&bTeleported to &f" + target.getName() + "&b."));
             return true;
         }
 
@@ -61,9 +61,9 @@ public class teleportCommand implements CommandExecutor {
             }
             target.teleport(target2);
             if (target.getName() == player.getName()) {
-                player.sendMessage(Utils.chat("&aYou have been teleported to &f" + target.getName() + "&a."));
+                player.sendMessage(Utils.chat("&bYou have been teleported to &f" + target.getName() + "&b."));
             } else {
-                player.sendMessage(Utils.chat("&aYou have teleported " + target.getName() + "&a to " + target2.getName() + "&a."));
+                player.sendMessage(Utils.chat("&bYou have teleported " + target.getName() + "&b to " + target2.getName() + "&b."));
             }
             return true;
         }
@@ -84,7 +84,7 @@ public class teleportCommand implements CommandExecutor {
             return true;
         }
         player.teleport(new Location(player.getWorld(), x, y, z, player.getLocation().getYaw(), player.getLocation().getPitch()));
-        player.sendMessage(Utils.chat("&aTeleported to &fx: " + x + "&a,&f y: " + y + "&a,&f z: " + z + "&a."));
+        player.sendMessage(Utils.chat("&bTeleported to &fx: " + x + "&b,&f y: " + y + "&b,&f z: " + z + "&b."));
         return true;
     }
 }

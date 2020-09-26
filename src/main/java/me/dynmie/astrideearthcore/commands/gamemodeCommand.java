@@ -77,9 +77,9 @@ public class gamemodeCommand implements TabExecutor {
 
             // Send messages based on who's gamemode was being set (obviously add color codes, etc!
             if (player != sender) {
-                sender.sendMessage(Utils.chat("&aYou have set " + player.getName() + "'s gamemode to &l" + mode.toString().toLowerCase() + "&a."));
+                sender.sendMessage(Utils.chat("&bYou have set &f" + player.getName() + "'s&b gamemode to &f" + mode.toString().toLowerCase() + "&b."));
             }
-            player.sendMessage(Utils.chat("&aYou have set your gamemode to &l" + mode.toString().toLowerCase() + "&a."));
+            player.sendMessage(Utils.chat("&bYou have set your gamemode to &f" + mode.toString().toLowerCase() + "&b."));
 
         }
         return true;

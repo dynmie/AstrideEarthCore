@@ -12,7 +12,7 @@ public class listCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        sender.sendMessage(Utils.chat("&aThere are &l" + vanishListener.vanishedPlayers() + " players&a online right now."));
+        sender.sendMessage(Utils.chat("&bThere are &f" + vanishListener.vanishedPlayers() + " players&b online right now."));
         return true;
     }
 }

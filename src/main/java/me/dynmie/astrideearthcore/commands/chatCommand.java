@@ -32,7 +32,7 @@ public class chatCommand implements CommandExecutor {
                 for(Player player : Bukkit.getOnlinePlayers()) {
                         player.sendMessage(" ");
              }
-            Bukkit.broadcastMessage(Utils.chat("&aThe chat has been cleared by &f" + sender.getName() + "&a."));
+            Bukkit.broadcastMessage(Utils.chat("&bThe chat has been cleared by &f" + sender.getName() + "&b."));
             Bukkit.broadcastMessage(" ");
             return true;
         }
@@ -40,24 +40,24 @@ public class chatCommand implements CommandExecutor {
         if (args[0].equalsIgnoreCase("mute")) {
             if (!(muted)) {
                 muted = true;
-                Bukkit.broadcastMessage(Utils.chat("&aThe chat has been muted by &f" + sender.getName() + "&a."));
+                Bukkit.broadcastMessage(Utils.chat("&bThe chat has been muted by &f" + sender.getName() + "&b."));
             } else {
                 muted = false;
-                Bukkit.broadcastMessage(Utils.chat("&aThe chat has been unmuted."));
+                Bukkit.broadcastMessage(Utils.chat("&bThe chat has been unmuted."));
             }
             return true;
         }
 
         if (args[0].equalsIgnoreCase("slow")) {
             if (args.length == 1) {
-                sender.sendMessage(Utils.chat("&aThe chat slow is currently set to &l" + plugin.getConfig().getInt("slowtime") + " seconds&a."));
+                sender.sendMessage(Utils.chat("&aThe chat slow is currently set to &l" + plugin.getConfig().getInt("slowtime") + " seconds&b."));
                 return true;
             } else {
                 try {
                     int interval = Integer.parseInt(args[1]);
                     plugin.getConfig().set("slowtime", interval);
                     plugin.saveConfig();
-                    Bukkit.broadcastMessage(Utils.chat("&aThe chat has been slowed to &f" + interval + " second" + (interval == 1 ? "" : "s") + " &aby &f" + sender.getName() + "&a."));
+                    Bukkit.broadcastMessage(Utils.chat("&bThe chat has been slowed to &f" + interval + " second" + (interval == 1 ? "" : "s") + " &bby &f" + sender.getName() + "&a."));
                 } catch (NumberFormatException e) {
                     sender.sendMessage(Utils.chat("&cProvide a valid number."));
                 }

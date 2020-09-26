@@ -28,7 +28,7 @@ public class killCommand implements CommandExecutor {
             } else {
                 Player player = (Player) sender;
                 player.setHealth(0);
-                player.sendMessage(Utils.chat("&aYou have killed &f" + player.getName() + "&a."));
+                player.sendMessage(Utils.chat("&bYou have killed &f" + player.getName() + "&a."));
             }
             return true;
         }
@@ -39,7 +39,7 @@ public class killCommand implements CommandExecutor {
         } else {
             Player target = getPlayer(args[0]);
             target.setHealth(0);
-            sender.sendMessage(Utils.chat("&aYou have killed &f" + target.getName() + "&a."));
+            sender.sendMessage(Utils.chat("&bYou have killed &f" + target.getName() + "&a."));
         }
 
         return true;

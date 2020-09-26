@@ -46,7 +46,7 @@ public class flyspeedCommand implements CommandExecutor {
             return false;
         }
         player.setFlySpeed((float) speed / 10);
-        player.sendMessage(Utils.chat("&aYour fly speed has been set to &l" + speed + "&a."));
+        player.sendMessage(Utils.chat("&bYour fly speed has been set to &l" + speed + "&b."));
         return true;
     }
 }

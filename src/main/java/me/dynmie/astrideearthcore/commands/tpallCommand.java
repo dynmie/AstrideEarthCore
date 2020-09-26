@@ -28,10 +28,10 @@ public class tpallCommand implements CommandExecutor {
         for (Player online : Bukkit.getOnlinePlayers()) {
             online.teleport(player);
             if (!(online == sender)) {
-                online.sendMessage(Utils.chat("&aYou have been teleported to &f" + player.getDisplayName() + "&a."));
+                online.sendMessage(Utils.chat("&bYou have been teleported to &f" + player.getDisplayName() + "&a."));
             }
         }
-        player.sendMessage(Utils.chat("&aTeleported all players to your location."));
+        player.sendMessage(Utils.chat("&bTeleported all players to your location."));
         return true;
     }
 }

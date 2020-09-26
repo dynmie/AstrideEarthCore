@@ -65,7 +65,7 @@ public class vanishCommand implements TabExecutor {
                 }
                 player.setPlayerListName("§7[VANISHED] §o" + player.getDisplayName());
                 player.setAllowFlight(true);
-                player.sendMessage("§aYou have §lenabled§a full vanish.");
+                player.sendMessage("§bYou have §lenabled§a full vanish.");
             }
             return true;
         }

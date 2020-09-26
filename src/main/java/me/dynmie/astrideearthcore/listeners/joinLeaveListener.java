@@ -24,5 +24,6 @@ public class joinLeaveListener implements Listener {
         //Player player = e.getPlayer();
         e.setQuitMessage("");
     }
+    //TODO: Add customizable chat login and logouts with vanish.
 
 }

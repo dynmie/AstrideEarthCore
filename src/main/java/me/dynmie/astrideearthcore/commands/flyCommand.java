@@ -28,7 +28,7 @@ public class flyCommand implements CommandExecutor {
         if (!(player.getAllowFlight())) {
             player.setAllowFlight(true);
             player.setFlying(true);
-            player.sendMessage(Utils.chat("&aFlying &lenabled&a."));
+            player.sendMessage(Utils.chat("&bFlying &lenabled&a."));
         } else {
             player.setAllowFlight(false);
             player.setFlying(false);

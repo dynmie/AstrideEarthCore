@@ -28,21 +28,21 @@ public class disguiseCommand implements CommandExecutor {
         if (args.length == 0) {
             player.setDisplayName(player.getName());
             player.setPlayerListName(player.getName());
-            player.sendMessage(Utils.chat("&aYou have set your disguise name to &f") + player.getName() + Utils.chat("&a."));
+            player.sendMessage(Utils.chat("&bYou have set your disguise name to &f") + player.getName() + Utils.chat("&b."));
             return true;
         }
 
         args[0] = args[0].replaceAll("[^A-Za-z0-9\\\\[\\\\]]", "");
 
         if (args[0].length() < 4|| args[0].length() > 10) {
-            player.sendMessage(Utils.chat("&cYou can only set a disguise from &l4 - 10&c characters."));
+            player.sendMessage(Utils.chat("&cYou can only set a disguise from &f4 &c-&f 10&c characters."));
             return true;
         }
 
         if (getPlayer(args[0]) == null) {
             player.setDisplayName(args[0]);
             player.setPlayerListName(args[0]);
-            player.sendMessage(Utils.chat("&aYou have set your disguise name to &f") + args[0] + Utils.chat("&a."));
+            player.sendMessage(Utils.chat("&bYou have set your disguise name to &f") + args[0] + Utils.chat("&b."));
             return true;
         } else {
             player.sendMessage(Utils.chat("&cThat player already exists."));

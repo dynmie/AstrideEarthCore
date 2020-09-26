@@ -23,7 +23,7 @@ public class feedCommand implements CommandExecutor {
             player.sendMessage(Utils.chat(plugin.getConfig().getString("noperms")));
             return true;
         } else {
-            player.sendMessage(Utils.chat("&aYou have been fed."));
+            player.sendMessage(Utils.chat("&bYou have been fed."));
             player.setFoodLevel(20);
         }
         return true;

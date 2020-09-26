@@ -46,7 +46,7 @@ public class walkspeedCommand implements CommandExecutor {
             return false;
         }
         player.setWalkSpeed((float) speed / 10);
-        player.sendMessage(Utils.chat("&aYour walk speed has been set to &l" + speed + "&a."));
+        player.sendMessage(Utils.chat("&bYour walk speed has been set to &l" + speed + "&b."));
         return true;
     }
 }

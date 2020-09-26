@@ -29,7 +29,7 @@ public class healCommand implements CommandExecutor {
             player.setFireTicks(0);
             for (PotionEffect effect : player.getActivePotionEffects())
                 player.removePotionEffect(effect.getType());
-            player.sendMessage(Utils.chat("&aYou have been healed."));
+            player.sendMessage(Utils.chat("&bYou have been healed."));
         }
         return true;
     }
