@@ -53,7 +53,7 @@ public class vanishCommand implements TabExecutor {
                 }
 
                 player.setPlayerListName(Utils.displayName(prefix, player.getDisplayName()));
-                player.sendMessage("§cYou have §ldisabled§c full vanish.");
+                player.sendMessage("§cFull Vanish for " + player.getDisplayName() + " has been §ldisabled§c.");
             } else if (!(fullVanishedPlayers.contains(player))){
                 if (!(vanishedPlayers.contains(player))) vanishedPlayers.add(player);
                 fullVanishedPlayers.add(player);
@@ -65,7 +65,7 @@ public class vanishCommand implements TabExecutor {
                 }
                 player.setPlayerListName("§7[VANISHED] §o" + player.getDisplayName());
                 player.setAllowFlight(true);
-                player.sendMessage("§bYou have §lenabled§b full vanish.");
+                player.sendMessage("§bFull Vanish for " + player.getDisplayName() + " has been §lenabled§b.");
             }
             return true;
         }
@@ -82,7 +82,8 @@ public class vanishCommand implements TabExecutor {
             }
             player.setPlayerListName(Utils.displayName(prefix, player.getDisplayName()));
             player.removePotionEffect(PotionEffectType.NIGHT_VISION);
-            player.sendMessage(Utils.chat(plugin.getConfig().getString("disabled-vanish")));
+            player.sendMessage("§cVanish for " + player.getDisplayName() + " has been §ldisabled§c.");
+
         } else if (!(vanishedPlayers.contains(player))){
             vanishedPlayers.add(player);
             fullVanishedPlayers.remove(player);
@@ -94,7 +95,7 @@ public class vanishCommand implements TabExecutor {
             }
             player.setPlayerListName("§7[VANISHED] §o" + player.getDisplayName());
             player.setAllowFlight(true);
-            player.sendMessage(Utils.chat(plugin.getConfig().getString("enabled-vanish")));
+            player.sendMessage("§bVanish for " + player.getDisplayName() + " has been §lenabled§b.");
         }
 
 
