@@ -31,7 +31,7 @@ KillAll: '&aKilled all entities'
 ping: '&aYour ping:'
 
 disabled-vanish: '&cYou have &ldisabled&c vanish.'
-enabled-vanish: '&bYou have &lenabled&a vanish.'
+enabled-vanish: '&bYou have &lenabled&b vanish.'
 #Handle joinleave vanish requires handle-joinleave to be set to true.
 handle-joinleave-vanish: true
 
