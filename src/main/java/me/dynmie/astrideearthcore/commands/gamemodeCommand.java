@@ -1,7 +1,9 @@
 package me.dynmie.astrideearthcore.commands;
 
 import me.dynmie.astrideearthcore.Main;
+import me.dynmie.astrideearthcore.utils.PlayerData;
 import me.dynmie.astrideearthcore.utils.Utils;
+import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -12,76 +14,85 @@ import java.util.*;
 
 import static org.bukkit.Bukkit.getPlayer;
 
-public class gamemodeCommand implements TabExecutor {
-    private Map<String, GameMode> modes = new HashMap<>();
 
+public class gamemodeCommand implements TabExecutor {
     Main plugin;
     public gamemodeCommand(Main plugin) {
         this.plugin = plugin;
-        modes.put("0", GameMode.SURVIVAL);
-        modes.put("1", GameMode.CREATIVE);
-        modes.put("2", GameMode.ADVENTURE);
-        modes.put("3", GameMode.SPECTATOR);
-        modes.put("survival", GameMode.SURVIVAL);
-        modes.put("creative", GameMode.CREATIVE);
-        modes.put("adventure", GameMode.ADVENTURE);
-        modes.put("spectator", GameMode.SPECTATOR);
-        modes.put("s", GameMode.SURVIVAL);
-        modes.put("c", GameMode.CREATIVE);
-        modes.put("a", GameMode.ADVENTURE);
-        modes.put("t", GameMode.ADVENTURE);
-        modes.put("sp", GameMode.SPECTATOR);
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (args.length == 0 || args.length > 2) {
-            sender.sendMessage(Utils.chat("&cUsage: /gamemode <adventure|creative|spectator|survival>"));
-        } else {
-            Player player;
-            if (args.length == 1) {
-                if (!(sender instanceof Player)) {
-                    // message saying cannot set the gamemode of console
-                    sender.sendMessage(Utils.chat("&cOnly players can execute this command!"));
-                    // requiring a player arg
-                    return true;
-                }
-                // if no player entered in the command, then player = sender
-                player = ((Player) sender);
-
-            } else {
-                // If player entered in command, we try find said player
-                player = getPlayer(args[1]);
-                if (player == null) {
-                    sender.sendMessage(Utils.chat("&cThat player is offline."));
-                    return true;
-                }
-            }
-
-            if (!(player.hasPermission("astride.gamemode"))) {
-                player.sendMessage(Utils.chat(plugin.getConfig().getString("noperms")));
-                return true;
-            }
-
-            // Now we check if the modes map contains the arg they typed
-            // This saves having to do a whole bunch of conditions for each possible gamemode entry
-            if (!modes.containsKey(args[0])) {
-                // message saying the arg isn't one of the gamemode choices
-                sender.sendMessage(Utils.chat("&cThis isn't a valid gamemode!"));
-                return true;
-            }
-
-            // If all system are go, we then set the gamemode based on the arg they typed, getting it from the map
-            GameMode mode = modes.get(args[0]);
-            player.setGameMode(mode);
-
-            // Send messages based on who's gamemode was being set (obviously add color codes, etc!
-            if (player != sender) {
-                sender.sendMessage(Utils.chat("&bYou have set &f" + player.getName() + "'s&b gamemode to &f" + mode.toString().toLowerCase() + "&b."));
-            }
-            player.sendMessage(Utils.chat("&bYou have set your gamemode to &f" + mode.toString().toLowerCase() + "&b."));
-
+        if (!(sender instanceof Player)) {
+            sender.sendMessage(Utils.chat(plugin.getConfig().getString("console")));
+            return true;
         }
+
+        Player player = (Player) sender;
+
+        if (!(player.hasPermission("astride.gamemode"))) {
+            player.sendMessage(Utils.chat(plugin.getConfig().getString("noperms")));
+            return true;
+        }
+
+        if (args[0] == null) {
+            player.sendMessage(Utils.chat("&cUsage: /gamemode <adventure|creative|spectator|survival> [player]"));
+            return true;
+        }
+
+
+        if (args[1] == null) {
+            switch (args[0]) {
+                case "creative":
+                    player.setGameMode(GameMode.CREATIVE);
+                    player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fcreative&b."));
+
+                case "survival":
+                    player.setGameMode(GameMode.SURVIVAL);
+                    player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fsurvival&b."));
+
+                case "spectator":
+                    player.setGameMode(GameMode.SPECTATOR);
+                    player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fspectator&b."));
+
+                case "adventure":
+                    player.setGameMode(GameMode.ADVENTURE);
+                    player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fadventure&b."));
+
+                default:
+                    player.sendMessage(Utils.chat("&cUsage: /gamemode <adventure|creative|spectator|survival> [player]"));
+            }
+            return true;
+        }
+
+        Player target = getPlayer(args[1]);
+
+        if (target == null) {
+            player.sendMessage(Utils.chat(plugin.getConfig().getString("PlayerOffline")));
+            return true;
+        }
+
+        switch (args[0]) {
+            case "creative":
+                target.setGameMode(GameMode.CREATIVE);
+                player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fcreative&b."));
+
+            case "survival":
+                target.setGameMode(GameMode.SURVIVAL);
+                player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fsurvival&b."));
+
+            case "spectator":
+                target.setGameMode(GameMode.SPECTATOR);
+                player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fspectator&b."));
+
+            case "adventure":
+                target.setGameMode(GameMode.ADVENTURE);
+                player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fadventure&b."));
+
+            default:
+                player.sendMessage(Utils.chat("&cUsage: /gamemode <adventure|creative|spectator|survival> [player]"));
+        }
+
         return true;
     }
 
