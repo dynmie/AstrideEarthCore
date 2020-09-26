@@ -31,10 +31,10 @@ public class flyCommand implements CommandExecutor {
         if (!(args.length == 1)) {
             if (!(player.getAllowFlight())) {
                 player.setAllowFlight(true);
-                player.sendMessage(Utils.chat("&bFlight Mode for " + player.getDisplayName() + "&lenabled&a."));
+                player.sendMessage(Utils.chat("&bFlight Mode for " + player.getDisplayName() + " &lenabled&a."));
             } else {
                 player.setAllowFlight(false);
-                player.sendMessage(Utils.chat("&cFlight Mode for " + player.getDisplayName() + "&ldisabled&c."));
+                player.sendMessage(Utils.chat("&cFlight Mode for " + player.getDisplayName() + " &ldisabled&c."));
             }
         } else {
             Player target = getPlayer(args[0]);
@@ -43,10 +43,10 @@ public class flyCommand implements CommandExecutor {
             } else {
                 if (target.getAllowFlight()) {
                     target.setAllowFlight(false);
-                    player.sendMessage(Utils.chat("&cFlight Mode for " + target.getDisplayName() + "&ldisabled&c."));
+                    player.sendMessage(Utils.chat("&cFlight Mode for " + target.getDisplayName() + " &ldisabled&c."));
                 } else {
                     target.setAllowFlight(true);
-                    player.sendMessage(Utils.chat("&bFlight Mode for " + target.getDisplayName() + "&lenabled&a."));
+                    player.sendMessage(Utils.chat("&bFlight Mode for " + target.getDisplayName() + " &lenabled&a."));
                 }
                 return true;
             }
