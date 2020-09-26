@@ -65,7 +65,7 @@ public class vanishCommand implements TabExecutor {
                 }
                 player.setPlayerListName("§7[VANISHED] §o" + player.getDisplayName());
                 player.setAllowFlight(true);
-                player.sendMessage("§bYou have §lenabled§a full vanish.");
+                player.sendMessage("§bYou have §lenabled§b full vanish.");
             }
             return true;
         }
@@ -110,7 +110,6 @@ public class vanishCommand implements TabExecutor {
             return list;
         } else if (args.length == 1) {
             list.add("full");
-            list.add("f");
             list.removeIf(s -> !s.toLowerCase().startsWith(args[0].toLowerCase()));
             Collections.sort(list);
             return list;

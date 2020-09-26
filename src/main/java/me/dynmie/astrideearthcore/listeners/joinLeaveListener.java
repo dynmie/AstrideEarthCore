@@ -41,12 +41,12 @@ public class joinLeaveListener implements Listener {
                 if (vanishCommand.vanishedPlayers.contains(player)) {
                     e.setQuitMessage("");
                     return;
+                } else {
+                    if (plugin.getConfig().getBoolean("handle-joinleave")) {
+                        e.setQuitMessage(plugin.getConfig().getString("quitmessage"));
+                        return;
+                    }
                 }
-            }
-        } else {
-            if (plugin.getConfig().getBoolean("handle-joinleave")) {
-                e.setQuitMessage(plugin.getConfig().getString("quitmessage"));
-                return;
             }
         }
         return;
