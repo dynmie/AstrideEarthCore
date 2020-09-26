@@ -1,4 +1,4 @@
-name: ${project.name}
+name: Core
 version: ${project.version}
 main: me.dynmie.astrideearthcore.Main
 depend: [Vault]
@@ -47,7 +47,7 @@ commands:
 
 permissions:
   astride.speed:
-    description: Permission to change your speed
+    description: Permission to change all of your speeds
     children:
       astride.walkspeed: true
       astride.flyspeed: true
