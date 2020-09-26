@@ -52,7 +52,6 @@ public final class Main extends JavaPlugin {
     public void startCommands() {
         getLogger().info("AstrideEarth Enabled");
         getCommand("fly").setExecutor(new flyCommand(this));
-        getCommand("speed").setExecutor(new speedCommand(this));
         getCommand("gamemode").setExecutor(new gamemodeCommand(this));
         getCommand("heal").setExecutor(new healCommand(this));
         getCommand("feed").setExecutor(new feedCommand(this));

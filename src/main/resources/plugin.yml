@@ -7,8 +7,6 @@ authors: [Astride Development]
 
 commands:
   fly:
-  speed:
-    description: 'Changes your speed.'
   gamemode:
     aliases: [gm]
     description: 'Changes your gamemode.'
