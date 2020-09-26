@@ -1,6 +1,8 @@
 package me.dynmie.astrideearthcore.listeners;
 
 import me.dynmie.astrideearthcore.Main;
+import me.dynmie.astrideearthcore.commands.vanishCommand;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -14,16 +16,39 @@ public class joinLeaveListener implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
-        //Player player = e.getPlayer();
-        e.setJoinMessage("");
-
+        Player player = e.getPlayer();
+        if (plugin.getConfig().getBoolean("handle-joinleave-vanish")) {
+            if (plugin.getConfig().getBoolean("handle-joinleave")) {
+                if (vanishCommand.vanishedPlayers.contains(player)) {
+                    e.setJoinMessage("");
+                    return;
+                }
+            }
+        } else {
+            if (plugin.getConfig().getBoolean("handle-joinleave")) {
+                e.setJoinMessage(plugin.getConfig().getString("joinmessage"));
+                return;
+            }
+        }
+        return;
     }
 
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent e) {
-        //Player player = e.getPlayer();
-        e.setQuitMessage("");
+        Player player = e.getPlayer();
+        if (plugin.getConfig().getBoolean("handle-joinleave-vanish")) {
+            if (plugin.getConfig().getBoolean("handle-joinleave")) {
+                if (vanishCommand.vanishedPlayers.contains(player)) {
+                    e.setQuitMessage("");
+                    return;
+                }
+            }
+        } else {
+            if (plugin.getConfig().getBoolean("handle-joinleave")) {
+                e.setQuitMessage(plugin.getConfig().getString("quitmessage"));
+                return;
+            }
+        }
+        return;
     }
-    //TODO: Add customizable chat login and logouts with vanish.
-
 }

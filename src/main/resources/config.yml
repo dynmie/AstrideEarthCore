@@ -32,3 +32,10 @@ ping: '&aYour ping:'
 
 disabled-vanish: '&cYou have &ldisabled&c vanish.'
 enabled-vanish: '&bYou have &lenabled&a vanish.'
+#Handle joinleave vanish requires handle-joinleave to be set to true.
+handle-joinleave-vanish: true
+
+#Join and leave messages
+handle-joinleave: true
+joinmessage: ''
+quitmessage: ''
