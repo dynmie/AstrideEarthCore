@@ -35,65 +35,44 @@ public class gamemodeCommand implements TabExecutor {
             return true;
         }
 
-        if (args[0] == null) {
+        if (args.length == 0) {
             player.sendMessage(Utils.chat("&cUsage: /gamemode <adventure|creative|spectator|survival> [player]"));
             return true;
         }
 
-
-        if (args[1] == null) {
-            switch (args[0]) {
-                case "creative":
-                    player.setGameMode(GameMode.CREATIVE);
-                    player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fcreative&b."));
-
-                case "survival":
-                    player.setGameMode(GameMode.SURVIVAL);
-                    player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fsurvival&b."));
-
-                case "spectator":
-                    player.setGameMode(GameMode.SPECTATOR);
-                    player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fspectator&b."));
-
-                case "adventure":
-                    player.setGameMode(GameMode.ADVENTURE);
-                    player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fadventure&b."));
-
-                default:
-                    player.sendMessage(Utils.chat("&cUsage: /gamemode <adventure|creative|spectator|survival> [player]"));
+        Player target = getPlayer(args[1]);
+        if (!(target == null) && args.length == 2) {
+            if (args[0].equalsIgnoreCase("creative")) {
+                target.setGameMode(GameMode.CREATIVE);
+                player.sendMessage(Utils.chat("&bGame Mode for " + target.getDisplayName() + " has been set to &fcreative&b."));
+            } else if (args[0].equalsIgnoreCase("survival")) {
+                target.setGameMode(GameMode.SURVIVAL);
+                player.sendMessage(Utils.chat("&bGame Mode for " + target.getDisplayName() + " has been set to &fsurvival&b."));
+            } else if (args[0].equalsIgnoreCase("adventure")) {
+                target.setGameMode(GameMode.ADVENTURE);
+                player.sendMessage(Utils.chat("&bGame Mode for " + target.getDisplayName() + " has been set to &fadventure&b."));
+            } else if (args[0].equalsIgnoreCase("spectator")) {
+                target.setGameMode(GameMode.SPECTATOR);
+                player.sendMessage(Utils.chat("&bGame Mode for " + target.getDisplayName() + " has been set to &fspectator&b."));
             }
             return true;
-        }
-
-        Player target = getPlayer(args[1]);
-
-        if (target == null) {
-            player.sendMessage(Utils.chat(plugin.getConfig().getString("PlayerOffline")));
-            return true;
-        }
-
-        switch (args[0]) {
-            case "creative":
-                target.setGameMode(GameMode.CREATIVE);
+        } else {
+            if (args[0].equalsIgnoreCase("creative")) {
+                player.setGameMode(GameMode.CREATIVE);
                 player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fcreative&b."));
-
-            case "survival":
-                target.setGameMode(GameMode.SURVIVAL);
+            } else if (args[0].equalsIgnoreCase("survival")) {
+                player.setGameMode(GameMode.SURVIVAL);
                 player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fsurvival&b."));
-
-            case "spectator":
-                target.setGameMode(GameMode.SPECTATOR);
-                player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fspectator&b."));
-
-            case "adventure":
-                target.setGameMode(GameMode.ADVENTURE);
+            } else if (args[0].equalsIgnoreCase("adventure")) {
+                player.setGameMode(GameMode.ADVENTURE);
                 player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fadventure&b."));
-
-            default:
-                player.sendMessage(Utils.chat("&cUsage: /gamemode <adventure|creative|spectator|survival> [player]"));
+            } else if (args[0].equalsIgnoreCase("spectator")) {
+                player.setGameMode(GameMode.SPECTATOR);
+                player.sendMessage(Utils.chat("&bGame Mode for " + player.getDisplayName() + " has been set to &fspectator&b."));
+            }
         }
-
         return true;
+
     }
 
     @Override
