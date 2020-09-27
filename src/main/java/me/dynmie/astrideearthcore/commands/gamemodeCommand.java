@@ -1,9 +1,7 @@
 package me.dynmie.astrideearthcore.commands;
 
 import me.dynmie.astrideearthcore.Main;
-import me.dynmie.astrideearthcore.utils.PlayerData;
 import me.dynmie.astrideearthcore.utils.Utils;
-import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
