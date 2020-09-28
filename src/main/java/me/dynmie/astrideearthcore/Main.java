@@ -71,7 +71,6 @@ public final class Main extends JavaPlugin {
         getCommand("freeze").setExecutor(new freezeCommand(this));
         getCommand("teleport").setExecutor(new teleportCommand(this));
         getCommand("tpall").setExecutor(new tpallCommand(this));
-        getCommand("tpask").setExecutor(new tpaskCommand(this));
     }
 
     public void tabCompleter() {

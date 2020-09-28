@@ -16,6 +16,9 @@ chatsystem: true
 chatformat: '&f%player% &7»&f %message%'
 messageformat: '%chatcolor%%message%'
 
+#Lobby?
+lobby: false
+
 #toggles
 enabled: '&lenabled'
 disabled: '&ldisabled'
