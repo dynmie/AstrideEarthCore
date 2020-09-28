@@ -42,6 +42,8 @@ commands:
   tpask:
     aliases: [tpa]
   tpaccept:
+  workbench:
+    aliases: [wb, craft]
 
 permissions:
   astride.speed:
@@ -99,3 +101,7 @@ permissions:
     description: Permission to vanish from all players including staff
   astride.vanish.exempt:
     description: Permission to be exempted from fullvanish.
+  astride.workbench:
+    description: Permission to open the workbench for yourself
+  astride.workbench.others:
+    description: Permission to open the workbench for someone else
