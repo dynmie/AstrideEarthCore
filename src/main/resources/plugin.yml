@@ -27,9 +27,9 @@ commands:
   nightvision:
     aliases: [nv]
   disguise:
-  killall:
     aliases: [mobkill]
-  vanish:
+    vanish:
+  killall:
     aliases: [v, s]
   list:
   invsee:
@@ -67,6 +67,8 @@ permissions:
     description: Permission for chat commands
   astride.chat.format:
     description: Permission for chat formatting, eg/ italics, bold
+  astride.chat.spy:
+    description: Allows the player to spy chat messages.
   astride.kill:
     description: Permission to kill
   astride.gamemode:

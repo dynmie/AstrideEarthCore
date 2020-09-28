@@ -34,8 +34,13 @@ public class messageCommand implements CommandExecutor {
                     messager.sendMessage(Utils.chat("&7(To &f" + receiver.getDisplayName() + "&7) " + message.trim()));
                     receiver.sendMessage(Utils.chat("&7(From &f" + messager.getDisplayName() + "&7) " + message.trim()));
                     receiver.playSound(receiver.getLocation(), ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 0.9f);
+
+                    for (Player spy : chatCommand.chatSpy) {
+                        spy.sendMessage("§7(From §f" + receiver.getDisplayName() + "§7 to §f " + messager.getDisplayName() + "§7) " + message.trim());
+                    }
+
                 } else {
-                    sender.sendMessage(Utils.chat("&cThat player is offline."));
+                    sender.sendMessage(Utils.chat(plugin.getConfig().getString("PlayerOffline")));
                 }
             } else {
                 sender.sendMessage(Utils.chat("&cThat isn't a valid message."));

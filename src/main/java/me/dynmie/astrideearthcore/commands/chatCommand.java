@@ -8,7 +8,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+
 public class chatCommand implements CommandExecutor {
+    public static ArrayList<Player> chatSpy = new ArrayList<>();
+
     private Main plugin;
     public chatCommand(Main main, Main plugin) {
         this.plugin = plugin;
@@ -22,7 +26,7 @@ public class chatCommand implements CommandExecutor {
         }
 
         if (args.length == 0) {
-            sender.sendMessage(Utils.chat("&cUsage: /chat <mute|slow|clear>"));
+            sender.sendMessage(Utils.chat("&cUsage: /chat <mute|slow|clear|spy>"));
             return true;
         }
 
@@ -65,6 +69,30 @@ public class chatCommand implements CommandExecutor {
             return true;
         }
 
-        return false;
+        if (args[0].equalsIgnoreCase("spy")) {
+            if (!(sender instanceof Player)) {
+                sender.sendMessage(Utils.chat(plugin.getConfig().getString("console")));
+                return true;
+            }
+
+            Player player = (Player) sender;
+
+            if (!(player.hasPermission("astride.chat.spy"))) {
+                player.sendMessage(Utils.chat(plugin.getConfig().getString("noperms")));
+                return true;
+            }
+
+
+            if (chatSpy.contains(player)) {
+                chatSpy.add(player);
+                player.sendMessage("§bSpy Mode for " + player.getDisplayName() + " has been §fenabled§b.");
+            } else {
+                chatSpy.remove(player);
+                player.sendMessage("§bSpy Mode for " + player.getDisplayName() + " has been §fdisabled§b.");
+            }
+            return true;
+        }
+
+        return true;
     }
 }
